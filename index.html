@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>CS544 Paper Demo</title>
+</head>
+<body>
+        <div class="has-text-centered p-4">
+            <strong>
+                <h1 class="title has-text-centered">CS544 Paper: Web Worker API</h1>
+            </strong>
+        </div>
+
+
+    <div class="container p-3">
+        <div class="columns p-3">
+            <div class="column-2">
+            </div>
+            <div class="column">
+                <h2 class="subtitle">Generate points using</h2>
+                <div class="control">
+                    <label class="radio">
+                      <input type="radio" id="thread" name="thread" value="worker" checked>
+                      Worker
+                    </label>
+                    <label class="radio">
+                      <input type="radio" id="thread" name="thread" value="main">
+                      Main thread
+                    </label>
+                </div>
+            </div>
+            <div class="column">
+                <div id="status">
+                    <h3 class="subtitle">Executing</h3>
+                    <progress class="progress is-danger" max="100"></progress>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="scatter" class="columns">
+            <div class="column is-6">
+                <h1 class="subtitle">Random Scatter Plot</h1>
+                <form>
+                    <div class="field">
+                        <label class="label">Number of points [10000-200000]</label>
+                        <div class="control">
+                        <input 
+                            id="scatterInput"
+                            class="input" 
+                            type="number" 
+                            min="10000" 
+                            max="200000"
+                            value="10000" 
+                            placeholder="Number of points [10000-200000]">
+                        </div>
+                    </div>
+                </form>  
+            </div>
+            <div class="column is-6">
+                <h1 class="subtitle">Random Bell Curve</h1>
+                <form>
+                    <div class="field">
+                        <label class="label">Number of points [10000-200000]</label>
+                        <div class="control">
+                            <input 
+                            id="bellInput"
+                            class="input" 
+                            type="number" 
+                            min="10000" 
+                            max="200000" 
+                            value="10000" 
+                            placeholder="Number of points [10000-200000]">
+                        </div>
+                    </div>
+                </form>  
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <div id="scatterPlot">
+                </div>
+            </div>
+            <div class="column">
+                <div id="bellCurvePlot">
+                </div>
+            </div>
+        </div>
+        <div class="columns">
+            <div class="column">
+                <button id="reset" class="button is-danger">Reset Plots</button>
+            </div>
+        
+            <div class="column">
+                <button id="bellStat" class="button">Get Stats for Bell Curve Plot</button>
+                &nbsp;
+                &nbsp;
+                <ul id="bellStatLi">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+    <script src="index.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/modules/histogram-bellcurve.js"></script>
+
+</footer>
+</html>
