@@ -3,10 +3,17 @@ self.onmessage = (e) => {
     generateXY(n);
 };
 
+
+//  checks if two points are same
 function isSame(p1, p2){
-    return p1[0]==p2[0] && p1[1]==p2[1];
+    return p1[0]===p2[0] && p1[1]===p2[1];
 }
 
+// generate points x and y 
+// ensures that each point 
+// is unique. purposely made to
+// be slow to simulate complex 
+// calculations.
 function generateXY(num) {
     let points = [];
     let i = 0;

@@ -1,3 +1,4 @@
+// DOM elements
 const scatterInput = document.querySelector('#scatterInput');
 const bellInput = document.querySelector('#bellInput');
 const bellStatsSelect = document.querySelector('#bellStat');
@@ -9,11 +10,15 @@ const resetButton = document.querySelector('#reset');
 progressBar.style.visibility='hidden';
 bellStatButton.setAttribute('disabled', true);
 
+// Workers
 const scatterWorker = new Worker('scatterWorker.js');
 const bellWorker = new Worker('bellWorker.js');
 const bellStatsWorker = new Worker('bellStatsWorker.js');
+
+// Chart for stats
 let chart;
 
+// adding event handlers
 resetButton.addEventListener('click', (e)=>{
     document.querySelector('#bellCurvePlot').replaceChildren();
     document.querySelector('#scatterPlot').replaceChildren();
@@ -49,6 +54,7 @@ bellStatsSelect.addEventListener('click', (e)=>{
     bellStatsWorker.postMessage(data);
 })
 
+// Recieving Messages from the workers
 scatterWorker.onmessage = (event) => {  
     const data = event.data;
     drawScatterPlot(data, 'Scatter Plot using Worker thread')
@@ -74,6 +80,8 @@ bellStatsWorker.onmessage = (event) =>{
     bellStatLi.append(stdli);
 }
 
+// Utility function to test point generation in 
+// Main Thread
 function isSame(p1, p2){
     return p1[0]==p2[0] && p1[1]==p2[1];
 }
@@ -131,7 +139,7 @@ function drawScatterPlot(data, title=''){
         plotOptions: {
             scatter: {
                 marker: {
-                    radius: 2.5,
+                    radius: 1.5,
                     symbol: 'circle',
                     states: {
                         hover: {
@@ -177,7 +185,7 @@ function drawBellCurve(data, title=''){
                         var labels = ['3σ', '2σ', 'σ', 'μ', 'σ', '2σ', '3σ'];
                         if (i % pointsInInterval === 0) {
                             point.update({
-                                color: 'darkgreen',
+                                color: 'blue',
                                 dataLabels: {
                                     enabled: true,
                                     format: labels[Math.floor(i / pointsInInterval)],
@@ -223,7 +231,7 @@ function drawBellCurve(data, title=''){
         }],
         plotOptions: {
             histogram: {
-                color:'darkgreen',
+                color:'blue',
                 binsNumber: 14
             },
             // bellcurve: {
@@ -241,9 +249,9 @@ function drawBellCurve(data, title=''){
             pointsInInterval:5,
             marker:{
                 enabled:true,
-                color:'darkgreen'
+                color:'blue'
             },
-            color:'green',
+            color:'blue',
             opacity:0.5,
             zIndex: -1,
             tooltip:{

@@ -3,6 +3,11 @@ self.onmessage = (e) => {
     generateX(n);
 };
 
+// generate point x
+// ensures that we do not get
+// many duplicated points. purposely 
+// made to be slow to simulate complex 
+// calculations.
 function generateX(num) {
     let points = [];
     let i = 0;
