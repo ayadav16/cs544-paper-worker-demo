@@ -8,10 +8,7 @@ Topic: Web Worker
 
 Steps to run:
 
-1. Clone the Repo:
-```
-git clone 
-```
+1. Clone the Repo
 
 2. Install the dependencies
 ```
