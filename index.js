@@ -5,9 +5,12 @@ const bellStatsSelect = document.querySelector('#bellStat');
 const bellStatLi = document.querySelector('#bellStatLi');
 const bellStatButton = document.querySelector('#bellStat');
 const progressBar = document.querySelector('#status');
+const progressBar1 = document.querySelector('#status1');
+
 const resetButton = document.querySelector('#reset');
 
 progressBar.style.visibility='hidden';
+progressBar1.style.visibility='hidden';
 bellStatButton.setAttribute('disabled', true);
 
 // Workers
@@ -40,7 +43,7 @@ scatterInput.addEventListener('blur', (e)=>{
 
 bellInput.addEventListener('blur', (e)=>{
     const useThread = document.querySelector('#thread:checked');
-    const progressBar = document.querySelector('#status');
+    const progressBar = document.querySelector('#status1');
     progressBar.style.visibility='visible';
     if(useThread.value=='worker'){
         // sending message to the worker
@@ -287,7 +290,7 @@ function drawBellCurve(data, title=''){
                 visible: false
         }]
         })
-        const progressBar = document.querySelector('#status');
+        const progressBar = document.querySelector('#status1');
     progressBar.style.visibility='hidden';
 };
 

@@ -18,8 +18,8 @@ function generateXY(num) {
     let points = [];
     let i = 0;
     while(i<num){
-        const x = Math.floor(Math.random() * num/3);
-        const y = Math.floor(Math.random() * num/3);
+        const x = Math.floor(Math.random() * num*10);
+        const y = Math.floor(Math.random() * num*10);
         if(points.findIndex(e=>isSame(e,[x,y]))==-1){
             points.push([x,y])
             i++;

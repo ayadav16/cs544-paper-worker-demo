@@ -16,7 +16,9 @@
         <div class="content p-4">
         Please use the radio button the  choose the  thread to generate the data.<br>
         A progress bar pops up when the data is being generated in worker while User is <br>
-        still able to interact with the page.
+        still able to interact with the page. Note that choosing high number of points may take <br>
+        longer time than expected to generate. However, using worker thread, you can still interact<br>
+        with the web page.
         </div>
 
 
@@ -39,8 +41,12 @@
             </div>
             <div class="column">
                 <div id="status">
-                    <h3 class="subtitle">Executing</h3>
+                    <h3 class="subtitle">Generating Scatter Plot</h3>
                     <progress class="progress is-danger" max="100"></progress>
+                </div>
+                <div id="status1">
+                    <h3 class="subtitle">Generating Bell Curve Plot</h3>
+                    <progress class="progress is-success" max="100"></progress>
                 </div>
             </div>
 
@@ -51,16 +57,16 @@
                 <h1 class="subtitle">Random Scatter Plot</h1>
                 <form>
                     <div class="field">
-                        <label class="label">Number of points [10000-200000]</label>
+                        <label class="label">Number of points [1000-200000]</label>
                         <div class="control">
                         <input 
                             id="scatterInput"
                             class="input" 
                             type="number" 
-                            min="10000" 
+                            min="1000" 
                             max="200000"
                             value="10000" 
-                            placeholder="Number of points [10000-200000]">
+                            placeholder="Number of points [1000-200000]">
                         </div>
                     </div>
                 </form>  
@@ -69,16 +75,16 @@
                 <h1 class="subtitle">Random Bell Curve</h1>
                 <form>
                     <div class="field">
-                        <label class="label">Number of points [10000-200000]</label>
+                        <label class="label">Number of points [1000-200000]</label>
                         <div class="control">
                             <input 
                             id="bellInput"
                             class="input" 
                             type="number" 
-                            min="10000" 
+                            min="1000" 
                             max="200000" 
                             value="10000" 
-                            placeholder="Number of points [10000-200000]">
+                            placeholder="Number of points [1000-200000]">
                         </div>
                     </div>
                 </form>  
