@@ -29,6 +29,7 @@ scatterInput.addEventListener('blur', (e)=>{
     const progressBar = document.querySelector('#status');
     progressBar.style.visibility='visible';
     if(useThread.value=='worker'){
+        // sending message to the worker
         scatterWorker.postMessage(e.target.value);
     }else{
         const data = generateXY(Number(e.target.value));
@@ -42,6 +43,7 @@ bellInput.addEventListener('blur', (e)=>{
     const progressBar = document.querySelector('#status');
     progressBar.style.visibility='visible';
     if(useThread.value=='worker'){
+        // sending message to the worker
         bellWorker.postMessage(e.target.value);
     }else{
         const data = generateX(Number(e.target.value));
@@ -54,18 +56,20 @@ bellStatsSelect.addEventListener('click', (e)=>{
     bellStatsWorker.postMessage(data);
 })
 
-// Recieving Messages from the workers
+// Recieving Messages from the worker
 scatterWorker.onmessage = (event) => {  
     const data = event.data;
     drawScatterPlot(data, 'Scatter Plot using Worker thread')
 };
 
+// Recieving Messages from the worker
 bellWorker.onmessage = (event) => {
     const data = event.data;
     drawBellCurve(data, 'Bell Curve using Main thread');
     document.querySelector('#bellStat').removeAttribute("disabled");
 };
 
+// Recieving Messages from the worker
 bellStatsWorker.onmessage = (event) =>{
     const data = event.data;
     const mean = data[0];
@@ -80,7 +84,7 @@ bellStatsWorker.onmessage = (event) =>{
     bellStatLi.append(stdli);
 }
 
-// Utility function to test point generation in 
+// Utility functions to test point generation in 
 // Main Thread
 function isSame(p1, p2){
     return p1[0]==p2[0] && p1[1]==p2[1];
@@ -113,7 +117,7 @@ function generateX(num) {
     return points;
 }
   
-
+// for plotting
 function drawScatterPlot(data, title=''){
     Highcharts.chart('scatterPlot',{
         chart: {
@@ -234,9 +238,6 @@ function drawBellCurve(data, title=''){
                 color:'blue',
                 binsNumber: 14
             },
-            // bellcurve: {
-            //     binsNumber: 10
-            // },
         },
 
         series: [{
@@ -256,7 +257,7 @@ function drawBellCurve(data, title=''){
             zIndex: -1,
             tooltip:{
                 headerFormat:'',
-                pointFormat: 'X: {point.x:.2f}</b>'
+                pointFormat: 'X: {point.x}</b>'
             },
         }, 
         {

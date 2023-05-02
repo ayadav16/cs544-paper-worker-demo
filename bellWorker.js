@@ -5,8 +5,8 @@ self.onmessage = (e) => {
 
 // generate point x
 // ensures that we do not get
-// many duplicated points. purposely 
-// made to be slow to simulate complex 
+// many duplicated points. it is an 
+// attempt to simulate complex 
 // calculations.
 function generateX(num) {
     let points = [];
@@ -18,6 +18,7 @@ function generateX(num) {
             i++;
         }
     }
+    // sending back the message to main thread
     self.postMessage(points);
 }
   

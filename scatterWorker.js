@@ -11,8 +11,8 @@ function isSame(p1, p2){
 
 // generate points x and y 
 // ensures that each point 
-// is unique. purposely made to
-// be slow to simulate complex 
+// is unique. it is an 
+// attempt to simulate complex 
 // calculations.
 function generateXY(num) {
     let points = [];
@@ -25,6 +25,7 @@ function generateXY(num) {
             i++;
         }
     }
+    // sending back the message to main thread
     self.postMessage(points);
 }
   

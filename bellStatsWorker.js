@@ -2,6 +2,7 @@ self.onmessage = (e) => {
     const arr = e.data;
     const mean = getMean(arr);
     const std = getStd(arr, mean);
+    // sending back the message to main thread
     self.postMessage([mean, std]);
 };
 
