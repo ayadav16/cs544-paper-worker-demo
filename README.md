@@ -15,7 +15,7 @@ git clone
 
 2. Install the dependencies
 ```
-npm ci
+npm install
 ```
 
 3. Run the server:
