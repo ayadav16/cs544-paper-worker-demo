@@ -23,6 +23,9 @@ npm ci
 npm start
 ```
 
+### Web Page:
+<img width="1194" alt="image" src="https://user-images.githubusercontent.com/113153292/235769873-07804236-6122-40da-976c-5e3fd6992320.png">
+
 ### Objective:
 Via this demo, we aim to demonstrate the functionality of worker threads. We are delegating calculations to the worker thread while keeping the main thread available to the user for interation. As expected, when we generated high number of random numbers,
 we can see responsive web page as opposed to using main thread for every task.
